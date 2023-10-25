@@ -19,13 +19,13 @@ class UserService {
     init {
         val faker = Faker.instance()
         IMAGES.shuffle()
-        val ganaratePersen = (1..100).map {
+        users = (1..100).map {
             User(
                 id = it,
                 name = faker.name().name(),
                 photo = IMAGES[it % IMAGES.size] //берем поочередно каждій єл-т и потом остатком от деления снова проходим цикл
             )
-        }
+        }.toMutableList()
     }
 
     fun getUser(): List<User>{
@@ -58,7 +58,7 @@ class UserService {
         usersListeners.remove(listener)
     }
 
-    fun notifyChanges(){
+    private fun notifyChanges(){
         usersListeners.forEach {it.invoke(users)}
     }
 

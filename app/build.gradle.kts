@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.mvvm_rcv_kot"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.mvvm_rcv_kot"

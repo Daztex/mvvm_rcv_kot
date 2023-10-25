@@ -15,5 +15,5 @@ import com.mvvm_rcv_kot.model.UserService
 
 class App: Application() {
     //создать экземляр класса UserService в singleton
-    val userService = UserService
+    val userService = UserService()
 }
