@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<defaults>
+  <entry>
+    <key>boolOn</key>
+    <value>false</value>
+  </entry>
+  <entry>
+    <key>WebUrl</key>
+    <value></value>
+  </entry>
+  <entry>
+    <key>one_signal</key>
+    <value></value>
+  </entry>
+  <entry>
+    <key>serv_key</key>
+    <value></value>
+  </entry>
+  <entry>
+    <key>send_key</key>
+    <value></value>
+  </entry>
+</defaults>

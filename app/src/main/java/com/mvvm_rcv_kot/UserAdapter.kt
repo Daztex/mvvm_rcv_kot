@@ -8,12 +8,12 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mvvm_rcv_kot.databinding.ItemUserBinding
-import com.mvvm_rcv_kot.model.User
+import com.mvvm_rcv_kot.model.TopUser
 import com.mvvm_rcv_kot.model.UserActionListener
 
 class UserAdapter(val userActionListener: UserActionListener):RecyclerView.Adapter<UserAdapter.UserViewHolder>(), View.OnClickListener {
 
-    var users: List<User> = emptyList()
+    var topUsers: List<TopUser> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -34,10 +34,10 @@ class UserAdapter(val userActionListener: UserActionListener):RecyclerView.Adapt
         return UserViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = users.size
+    override fun getItemCount(): Int = topUsers.size
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val user = users[position]
+        val user = topUsers[position]
         with(holder.binding){
             holder.itemView.tag = user
             moreImageViewButton.tag = user
@@ -57,13 +57,13 @@ class UserAdapter(val userActionListener: UserActionListener):RecyclerView.Adapt
     }
 
     override fun onClick(view: View) {
-        val user = view.tag as User
+        val topUser = view.tag as TopUser
         when(view.id){
             R.id.moreImageViewButton ->{
                 showPopUp(view)
             }
             else ->{
-                userActionListener.onDetails(user)
+                userActionListener.onDetails(topUser)
             }
         }
     }

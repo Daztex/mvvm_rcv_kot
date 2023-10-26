@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "284681853937",
+    "project_id": "reloto-a1297",
+    "storage_bucket": "reloto-a1297.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284681853937:android:9900b729dd327b41f74250",
+        "android_client_info": {
+          "package_name": "com.mvvm_rcv_kot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPC4sohJvCdQ19apo3UDdZuw5lw6qXQFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

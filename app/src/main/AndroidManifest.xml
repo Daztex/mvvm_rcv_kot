@@ -2,8 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_IMAGE" />
+    <uses-permission android:name="android.permission.WRITE_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
         android:name=".App"
@@ -15,9 +25,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mvvm_rcv_kot"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        tools:replace="android:fullBackupContent">
         <activity
-            android:name=".MainActivity"
+            android:name=".navigation.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navigation.SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navigation.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TopPlayersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".navigation.BaseActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".navigation.IntroActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".mainweb.ActivityWebView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

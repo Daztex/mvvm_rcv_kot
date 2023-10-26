@@ -1,6 +1,5 @@
 package com.mvvm_rcv_kot.model
 
-import com.bumptech.glide.util.Util
 import com.github.javafaker.Faker
 import java.util.Collections
 
@@ -11,16 +10,16 @@ import java.util.Collections
 при удалении пользователя) все слушатели будут уведомлены с помощью метода
 notifyChanges*/
 
-typealias UsersListener =  (users: List<User>) -> Unit
+typealias UsersListener =  (topUsers: List<TopUser>) -> Unit
 class UserService {
-    private var users = mutableListOf<User>()
+    private var topUsers = mutableListOf<TopUser>()
     private val usersListeners = mutableListOf<UsersListener>()
 
     init {
         val faker = Faker.instance()
         IMAGES.shuffle()
-        users = (1..100).map {
-            User(
+        topUsers = (1..100).map {
+            TopUser(
                 id = it,
                 name = faker.name().name(),
                 photo = IMAGES[it % IMAGES.size] //берем поочередно каждій єл-т и потом остатком от деления снова проходим цикл
@@ -28,30 +27,30 @@ class UserService {
         }.toMutableList()
     }
 
-    fun getUser(): List<User>{
-        return users
+    fun getUser(): List<TopUser>{
+        return topUsers
     }
 
-    fun deleteUser(user:User) {
-        val index = users.indexOfFirst { it.id == user.id }
+    fun deleteUser(topUser:TopUser) {
+        val index = topUsers.indexOfFirst { it.id == topUser.id }
         if(index != -1){
-            users.removeAt(index)
+            topUsers.removeAt(index)
             notifyChanges()
         }
     }
 
-    fun moveUser(user:User, moveBy: Int){
-        val oldIndex = users.indexOfFirst { it.id == user.id }
+    fun moveUser(topUser:TopUser, moveBy: Int){
+        val oldIndex = topUsers.indexOfFirst { it.id == topUser.id }
         if(oldIndex == -1) return
         val newIndex = oldIndex + moveBy
-        if(newIndex<0 || newIndex >= users.size) return
-        Collections.swap(users, oldIndex,  newIndex)
+        if(newIndex<0 || newIndex >= topUsers.size) return
+        Collections.swap(topUsers, oldIndex,  newIndex)
         notifyChanges()
     }
 
     fun addListener(listener: UsersListener){
         usersListeners.add(listener)
-        listener.invoke(users)
+        listener.invoke(topUsers)
     }
 
     fun removeListener(listener: UsersListener){
@@ -59,7 +58,7 @@ class UserService {
     }
 
     private fun notifyChanges(){
-        usersListeners.forEach {it.invoke(users)}
+        usersListeners.forEach {it.invoke(topUsers)}
     }
 
     companion object {

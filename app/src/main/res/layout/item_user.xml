@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_marginStart="16dp"
         android:lines="1"
         android:ellipsize="end"
@@ -45,6 +45,7 @@
         app:layout_constraintEnd_toStartOf="@id/moreImageViewButton"/>
 
     <ImageView
+        android:visibility="gone"
         android:id="@+id/moreImageViewButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
