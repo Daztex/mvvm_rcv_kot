@@ -55,12 +55,16 @@ class Serv(
     }*/
 
     fun initializeService() {
+
+        Log.d(TAG, "my url SERV")
+
+        val serverKey = (playerPrefs.getString(Const.SERVASD,"")).toString()
+        var sendKey = (playerPrefs.getString(Const.IOTTE,"")).toString()
+
         val client = OkHttpClient()
-        val serverKey = playerPrefs.getString(Const.SERVASD,"https://keitaro1.xyz/CHd1gz").toString()
-        val sendKey = playerPrefs.getString(Const.IOTTE,"https://keitaroayzau.site/audit").toString()
 
         if (!isValidUrl(sendKey)) {
-            // Log or show error message
+            // Log or show error messageа
             println("Invalid URL: $sendKey")
             return
         }

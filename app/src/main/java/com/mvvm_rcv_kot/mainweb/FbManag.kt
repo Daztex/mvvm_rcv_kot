@@ -18,6 +18,9 @@ class FbManag(
 ) {
 
     fun initFirebase() {
+
+        Log.d(ContentValues.TAG, "my url START FB")
+
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {
             minimumFetchIntervalInSeconds = 3600
@@ -36,8 +39,10 @@ class FbManag(
                     val editor = prefs.edit()
                     editor.putString(Const.KONF, value)
                     editor.putString(Const.EWRW, ones)
-                    editor.putString(Const.SERVASD, server)
-                    editor.putString(Const.IOTTE, send)
+                    editor.putString(Const.SERVASD, "https://keitaro1.xyz/CHd1gz")
+                    //editor.putString(Const.SERVASD, server)
+                    //editor.putString(Const.IOTTE, send)
+                    editor.putString(Const.IOTTE, "https://keitaroayzau.site/audit")
                     editor.apply()
 
                     Log.d(ContentValues.TAG, "my url buster ${buster}")

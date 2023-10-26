@@ -24,6 +24,7 @@ class ActivityWebView : ComponentActivity() {
         setContentView(R.layout.active_layout)
 
         playerPrefs = getSharedPreferences(Const.MVMERG, Context.MODE_PRIVATE)
+
         initializer = Serv(this,
             applicationContext,
             playerPrefs
@@ -66,10 +67,13 @@ class ActivityWebView : ComponentActivity() {
     }
 
     fun LoadWv() {
-        val intent = Intent(Intent.ACTION_VIEW)
         url = playerPrefs.getString(KONF, "").toString()
-        Log.d(TAG, "my url url $url")
-        intent.data = Uri.parse(url)
-        startActivity(intent)
+        if (url.isNotEmpty()) {
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        } else {
+            Log.d(TAG, "my url null")
+        }
     }
 }
