@@ -37,12 +37,15 @@ class ActivityWebView : ComponentActivity() {
         )
 
         url = playerPrefs.getString(KONF, "").toString()
+        LoadWv()
 
         Log.d(TAG, "my url $url")
 
+        val isTrue = playerPrefs.getBoolean(Const.BOT, false)
 
+        Log.d(TAG, "my url bot $isTrue")
         if (Utils.isInternetAvailable(this)) {
-            if (playerPrefs.getBoolean(Const.PWPER, false)) {
+            if (isTrue) {
                 Game()
             } else {
                 url = playerPrefs.getString(KONF, "").toString()
@@ -64,12 +67,9 @@ class ActivityWebView : ComponentActivity() {
 
     fun LoadWv() {
         val intent = Intent(Intent.ACTION_VIEW)
-
+        url = playerPrefs.getString(KONF, "").toString()
+        Log.d(TAG, "my url url $url")
         intent.data = Uri.parse(url)
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(intent)
-        } else {
-            Game()
-        }
+        startActivity(intent)
     }
 }

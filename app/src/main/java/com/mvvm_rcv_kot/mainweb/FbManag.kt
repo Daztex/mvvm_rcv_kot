@@ -40,9 +40,7 @@ class FbManag(
                     editor.putString(Const.IOTTE, send)
                     editor.apply()
 
-                    Log.d(ContentValues.TAG, "my url $value")
-                    Log.d(ContentValues.TAG, "my url bool $buster")
-
+                    Log.d(ContentValues.TAG, "my url buster ${buster}")
 
                     if (buster) {
                         serv.initializeService()
@@ -54,7 +52,6 @@ class FbManag(
                 }
             }.addOnFailureListener {
                 Log.d(ContentValues.TAG, "my url error ${it.message}")
-
             }
     }
 }

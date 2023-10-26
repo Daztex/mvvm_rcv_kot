@@ -8,5 +8,5 @@ object Const {
     const val SERVASD = "serv_key"
     const val IOTTE = "send_key"
     const val MVMERG = "PlayerPrefs"
-    const val PWPER = "chek"
+    const val BOT = "chek"
 }
